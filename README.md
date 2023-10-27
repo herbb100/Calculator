@@ -1,0 +1,1 @@
+This is a calculator project using JavaScript, CSS and HTML. This is part of the Odin project Foundations projects.
