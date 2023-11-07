@@ -66,7 +66,7 @@ clear.addEventListener("click", ()=>{
 
 })
 
-equal.addEventListener("click", ()=>{
+function equalFunc(){
     if (operator === "+") {
         result = add(+firstNum,+secondNum);
         console.log(result)
@@ -80,7 +80,7 @@ equal.addEventListener("click", ()=>{
         screenResult.textContent = result.toString();
         screenTop.textContent = result.toString();
         firstNum = result;
-
+        
     }   
     else if (operator === "*"){
         result = multiply(+firstNum,+secondNum);
@@ -88,7 +88,7 @@ equal.addEventListener("click", ()=>{
         screenResult.textContent = result.toString();
         screenTop.textContent = result.toString();
         firstNum = result;
-
+        
     }  
     else if (operator === "/"){
         result = divide(+firstNum,+secondNum);
@@ -96,12 +96,16 @@ equal.addEventListener("click", ()=>{
         screenResult.textContent = result.toString();
         screenTop.textContent = result.toString();
         firstNum = result;
-
+        
     }   
-})
+};
+
+equal.addEventListener("click", equalFunc);
 
 plus.addEventListener("click", ()=> {
-    
+
+    equalFunc();
+
     operator = plus.textContent;
     screenResult.textContent = operator;
     
@@ -109,6 +113,9 @@ plus.addEventListener("click", ()=> {
 });
 
 minus.addEventListener("click", ()=> {
+
+    equalFunc();
+
     operator = minus.textContent;
     screenResult.textContent = operator;
     
@@ -116,6 +123,9 @@ minus.addEventListener("click", ()=> {
 });
 
 product.addEventListener("click", ()=> {
+
+    equalFunc();
+
     operator = product.textContent;
     screenResult.textContent = operator;
     
@@ -123,6 +133,9 @@ product.addEventListener("click", ()=> {
 });
 
 quotient.addEventListener("click", ()=> {
+
+    equalFunc();
+
     operator = quotient.textContent;
     screenResult.textContent = operator;
     
