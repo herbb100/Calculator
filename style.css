@@ -20,9 +20,36 @@ div.screen{
     background-color: seagreen;
     height: 200px;
     margin: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+    /* flex-grow: 1; */
+    font-size: 5rem;
 }
 
-div.bottomcontainer{
+div.screenTop{
+    /* background-color: purple; */
+    height: 50%;
+    width: 390px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+
+}
+
+div.screenResult{
+    /* background-color: aqua; */
+    height: 50%;
+    width: 390px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}
+
+div.bottomContainer{
     background-color: grey;
     height: 500px;
     display: flex;
@@ -55,7 +82,7 @@ button.num{
     border-radius: 10px;
 }
 
-button.toplevel{
+button.topLevel{
     height:90px;
     width:197px;
     border-radius: 10px;
