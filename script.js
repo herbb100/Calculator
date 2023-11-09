@@ -14,10 +14,10 @@ function divide(num1, num2){
     return num1 / num2;
 };
 
-let firstNum ;
+let firstNum = [] ;
 let operator;
-let secondNum;
-let result;
+let secondNum = [];
+let result = [];
 
 function operate(operator, firstNum, secondNum){
     if(operator === "+"){
@@ -46,6 +46,7 @@ const six = document.querySelector("button.num.six");
 const seven = document.querySelector("button.num.seven");
 const eight = document.querySelector("button.num.eight");
 const nine = document.querySelector("button.num.nine");
+const dot = document.querySelector("button.num.dot");
 
 const plus = document.querySelector("button.num.add");
 const minus = document.querySelector("button.num.sub");
@@ -55,11 +56,22 @@ const equal = document.querySelector("button.num.equal");
 const clear = document.querySelector("button.topLevel.clear");
 const erase = document.querySelector("button.topLevel.delete");
 
+erase.addEventListener("click", ()=> {
+    if(operator){
+        secondNum.pop(erase.textContent);
+        screenResult.textContent = secondNum.join("").toString();
+
+    }else{
+        firstNum.pop(erase.textContent);
+        screenResult.textContent = firstNum.join("").toString();
+    }
+})
+
 clear.addEventListener("click", ()=>{
-    firstNum = "";
-    secondNum = "";
+    firstNum = [];
+    secondNum = [];
     operator = "";
-    result = "";
+    result = [];
     screenResult.textContent = "";
     screenTop.textContent = "";
 
@@ -68,34 +80,48 @@ clear.addEventListener("click", ()=>{
 
 function equalFunc(){
     if (operator === "+") {
-        result = add(+firstNum,+secondNum);
+        result.push(add(+firstNum.join("").toString(),+secondNum.join("").toString()));
         console.log(result)
-        screenResult.textContent = result.toString();
-        screenTop.textContent = result.toString();
-        firstNum = result;
+        screenResult.textContent = (+result.toString()).toFixed(2);
+        screenTop.textContent = (+result.toString()).toFixed(2);
+        firstNum = [];
+        secondNum = [];
+        firstNum.push((+result.toString()).toFixed(2));
+        result = [];
     }   
     else if (operator === "-"){
-        result = subtract(+firstNum, +secondNum);
+        result.push(subtract(+firstNum.join("").toString(), +secondNum.join("").toString()));
         console.log(result)
-        screenResult.textContent = result.toString();
-        screenTop.textContent = result.toString();
-        firstNum = result;
+        screenResult.textContent = (+result.toString()).toFixed(2);
+        screenTop.textContent = (+result.toString()).toFixed(2);
+        firstNum = [];
+        secondNum = [];
+        firstNum.push((+result.toString()).toFixed(2));
+        result = [];
+
         
     }   
     else if (operator === "*"){
-        result = multiply(+firstNum,+secondNum);
+        result.push(multiply(+firstNum.join("").toString(), +secondNum.join("").toString()));
         console.log(result)
-        screenResult.textContent = result.toString();
-        screenTop.textContent = result.toString();
-        firstNum = result;
+        screenResult.textContent = (+result.toString()).toFixed(2);
+        screenTop.textContent = (+result.toString()).toFixed(2);
+        firstNum = [];
+        secondNum = [];
+        firstNum.push((+result.toString()).toFixed(2));
+        result = [];
+        
         
     }  
     else if (operator === "/"){
-        result = divide(+firstNum,+secondNum);
+        result.push(divide(+firstNum.join("").toString(), +secondNum.join("").toString()));
         console.log(result)
-        screenResult.textContent = result.toString();
-        screenTop.textContent = result.toString();
-        firstNum = result;
+        screenResult.textContent = (+result.toString()).toFixed(2);
+        screenTop.textContent = (+result.toString()).toFixed(2);
+        firstNum = [];
+        secondNum = [];
+        firstNum.push((+result.toString()).toFixed(2));
+        result = [];
         
     }   
 };
@@ -142,135 +168,135 @@ quotient.addEventListener("click", ()=> {
     console.log(screenResult.textContent);
 });
 
-
-
-zero.addEventListener("click", ()=> {
-    if(firstNum){
-        secondNum = zero.textContent;
-        screenResult.textContent = secondNum;
-        screenTop.textContent = `${firstNum} ${operator} ${secondNum}`
+dot.addEventListener("click", ()=> {
+    if(operator){
+        if(!secondNum.includes(".")){
+            secondNum.push(dot.textContent);
+            screenResult.textContent = secondNum.join("").toString();
+        }
         
     }else{
-        firstNum = zero.textContent;
-        screenResult.textContent = firstNum;       
+        if(!firstNum.includes(".")){
+            firstNum.push(dot.textContent);
+            screenResult.textContent = firstNum.join("").toString();
+        }
     }
-    console.log(screenResult.textContent); 
-       
+})
+
+zero.addEventListener("click", ()=> {
+    if(operator){
+        secondNum.push(zero.textContent);
+        screenResult.textContent = secondNum.join("").toString();
+
+    }else{
+        firstNum.push(zero.textContent);
+        screenResult.textContent = firstNum.join("").toString();
+    }
 });
 
 one.addEventListener("click", ()=> {
-    if(firstNum){
-        secondNum = one.textContent;
-        screenResult.textContent = secondNum;
-        screenTop.textContent = `${firstNum} ${operator} ${secondNum}`
-        
+    if(operator){
+        secondNum.push(one.textContent);
+        screenResult.textContent = secondNum.join("").toString();
+
     }else{
-        firstNum = one.textContent;
-        screenResult.textContent = firstNum;       
+        firstNum.push(one.textContent);
+        screenResult.textContent = firstNum.join("").toString();
     }
-    console.log(screenResult.textContent); 
 });
 
 two.addEventListener("click", ()=> {
-    if(firstNum){
-        secondNum = two.textContent;
-        screenResult.textContent = secondNum;
-        screenTop.textContent = `${firstNum} ${operator} ${secondNum}`
-        
+    if(operator){
+        secondNum.push(two.textContent);
+        screenResult.textContent = secondNum.join("").toString();
+
     }else{
-        firstNum = two.textContent;
-        screenResult.textContent = firstNum;       
+        firstNum.push(two.textContent);
+        screenResult.textContent = firstNum.join("").toString();
     }
-    console.log(screenResult.textContent); 
+ 
 });
 
 three.addEventListener("click", ()=> {
-    if(firstNum){
-        secondNum = three.textContent;
-        screenResult.textContent = secondNum;
-        screenTop.textContent = `${firstNum} ${operator} ${secondNum}`
-        
+    if(operator){
+        secondNum.push(three.textContent);
+        screenResult.textContent = secondNum.join("").toString();
+
     }else{
-        firstNum = three.textContent;
-        screenResult.textContent = firstNum;       
+        firstNum.push(three.textContent);
+        screenResult.textContent = firstNum.join("").toString();
     }
-    console.log(screenResult.textContent); 
+
 });
 
 four.addEventListener("click", ()=> {
-    if(firstNum){
-        secondNum = four.textContent;
-        screenResult.textContent = secondNum;
-        screenTop.textContent = `${firstNum} ${operator} ${secondNum}`
-        
+    if(operator){
+        secondNum.push(four.textContent);
+        screenResult.textContent = secondNum.join("").toString();
+
     }else{
-        firstNum = four.textContent;
-        screenResult.textContent = firstNum;       
+        firstNum.push(four.textContent);
+        screenResult.textContent = firstNum.join("").toString();
     }
-    console.log(screenResult.textContent); 
+
 });
 
 five.addEventListener("click", ()=> {
-    if(firstNum){
-        secondNum = five.textContent;
-        screenResult.textContent = secondNum;
-        screenTop.textContent = `${firstNum} ${operator} ${secondNum}`
-        
+    if(operator){
+        secondNum.push(five.textContent);
+        screenResult.textContent = secondNum.join("").toString();
+
     }else{
-        firstNum = five.textContent;
-        screenResult.textContent = firstNum;       
+        firstNum.push(five.textContent);
+        screenResult.textContent = firstNum.join("").toString();
     }
-    console.log(screenResult.textContent); 
+
 })
 
 six.addEventListener("click", ()=> {
-    if(firstNum){
-        secondNum = six.textContent;
-        screenResult.textContent = secondNum;
-        screenTop.textContent = `${firstNum} ${operator} ${secondNum}`
-        
+    if(operator){
+        secondNum.push(six.textContent);
+        screenResult.textContent = secondNum.join("").toString();
+
     }else{
-        firstNum = six.textContent;
-        screenResult.textContent = firstNum;       
+        firstNum.push(six.textContent);
+        screenResult.textContent = firstNum.join("").toString();
     }
-    console.log(screenResult.textContent); 
+
 });
 
 seven.addEventListener("click", ()=> {
-    if(firstNum){
-        secondNum = seven.textContent;
-        screenResult.textContent = secondNum;
-        screenTop.textContent = `${firstNum} ${operator} ${secondNum}`
-        
+    if(operator){
+        secondNum.push(seven.textContent);
+        screenResult.textContent = secondNum.join("").toString();
+
     }else{
-        firstNum = seven.textContent;
-        screenResult.textContent = firstNum;       
+        firstNum.push(seven.textContent);
+        screenResult.textContent = firstNum.join("").toString();
     }
-    console.log(screenResult.textContent); 
+
 });
 
 eight.addEventListener("click", ()=> {
-    if(firstNum){
-        secondNum = eight.textContent;
-        screenResult.textContent = secondNum;
-        screenTop.textContent = `${firstNum} ${operator} ${secondNum}`
-        
+    if(operator){
+        secondNum.push(eight.textContent);
+        screenResult.textContent = secondNum.join("").toString();
+
     }else{
-        firstNum = eight.textContent;
-        screenResult.textContent = firstNum;       
+        firstNum.push(eight.textContent);
+        screenResult.textContent = firstNum.join("").toString();
     }
-    console.log(screenResult.textContent); 
+
 });
 
 nine.addEventListener("click", ()=> {
-    if(firstNum){
-        secondNum = nine.textContent;
-        screenResult.textContent = secondNum;
-        screenTop.textContent = `${firstNum} ${operator} ${secondNum}`
-        
+    if(operator){
+        secondNum.push(nine.textContent);
+        screenResult.textContent = secondNum.join("").toString();
+
     }else{
-        firstNum = nine.textContent;
-        screenResult.textContent = firstNum;       
+        firstNum.push(nine.textContent);
+        screenResult.textContent = firstNum.join("").toString();
     }
-    console.log(screenResult.textContent); 
+
 });
