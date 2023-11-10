@@ -82,46 +82,82 @@ function equalFunc(){
     if (operator === "+") {
         result.push(add(+firstNum.join("").toString(),+secondNum.join("").toString()));
         console.log(result)
-        screenResult.textContent = (+result.toString()).toFixed(2);
-        screenTop.textContent = (+result.toString()).toFixed(2);
-        firstNum = [];
-        secondNum = [];
-        firstNum.push((+result.toString()).toFixed(2));
-        result = [];
+        if(result.toString().includes(".")){
+            screenResult.textContent = (+result.toString()).toFixed(2);
+            screenTop.textContent = (+result.toString()).toFixed(2);
+            firstNum = [];
+            secondNum = [];
+            firstNum.push((+result.toString()).toFixed(2));
+            result = [];
+        }else{
+            screenResult.textContent = result.toString();
+            screenTop.textContent = result.toString();
+            firstNum = [];
+            secondNum = [];
+            firstNum.push(result.toString());
+            result = [];   
+        }
     }   
     else if (operator === "-"){
         result.push(subtract(+firstNum.join("").toString(), +secondNum.join("").toString()));
         console.log(result)
-        screenResult.textContent = (+result.toString()).toFixed(2);
-        screenTop.textContent = (+result.toString()).toFixed(2);
-        firstNum = [];
-        secondNum = [];
-        firstNum.push((+result.toString()).toFixed(2));
-        result = [];
-
+        if(result.toString().includes(".")){
+            screenResult.textContent = (+result.toString()).toFixed(2);
+            screenTop.textContent = (+result.toString()).toFixed(2);
+            firstNum = [];
+            secondNum = [];
+            firstNum.push((+result.toString()).toFixed(2));
+            result = [];
+        }else{
+            screenResult.textContent = result.toString();
+            screenTop.textContent = result.toString();
+            firstNum = [];
+            secondNum = [];
+            firstNum.push(result.toString());
+            result = [];
+        }
         
     }   
     else if (operator === "*"){
         result.push(multiply(+firstNum.join("").toString(), +secondNum.join("").toString()));
         console.log(result)
-        screenResult.textContent = (+result.toString()).toFixed(2);
-        screenTop.textContent = (+result.toString()).toFixed(2);
-        firstNum = [];
-        secondNum = [];
-        firstNum.push((+result.toString()).toFixed(2));
-        result = [];
+        if(result.toString().includes(".")){
+            screenResult.textContent = (+result.toString()).toFixed(2);
+            screenTop.textContent = (+result.toString()).toFixed(2);
+            firstNum = [];
+            secondNum = [];
+            firstNum.push((+result.toString()).toFixed(2));
+            result = [];
+        }else{
+            screenResult.textContent = result.toString();
+            screenTop.textContent = result.toString();
+            firstNum = [];
+            secondNum = [];
+            firstNum.push(result.toString());
+            result = [];
+        }
         
         
     }  
     else if (operator === "/"){
         result.push(divide(+firstNum.join("").toString(), +secondNum.join("").toString()));
         console.log(result)
-        screenResult.textContent = (+result.toString()).toFixed(2);
-        screenTop.textContent = (+result.toString()).toFixed(2);
-        firstNum = [];
-        secondNum = [];
-        firstNum.push((+result.toString()).toFixed(2));
-        result = [];
+
+        if(result.toString().includes(".")){
+            screenResult.textContent = (+result.toString()).toFixed(2);
+            screenTop.textContent = (+result.toString()).toFixed(2);
+            firstNum = [];
+            secondNum = [];
+            firstNum.push((+result.toString()).toFixed(2));
+            result = [];
+        }else{
+            screenResult.textContent = result.toString();
+            screenTop.textContent = result.toString();
+            firstNum = [];
+            secondNum = [];
+            firstNum.push(result.toString());
+            result = [];
+        }
         
     }   
 };

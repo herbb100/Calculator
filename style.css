@@ -101,6 +101,7 @@ button.num:hover{
     background-color: rgb(147, 143, 143);
 }
 
-button.toplevel:hover{
+button.delete:hover,
+button.clear:hover{
     background-color: rgb(147, 143, 143);
 }
